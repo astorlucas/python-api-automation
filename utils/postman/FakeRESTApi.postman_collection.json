@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "060bb3ce-77f6-4687-816a-cb79a57d8aa7",
+		"name": "FakeRESTApi",
+		"description": "This is a collection for exploratory testing of the Fake Rest API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31401449"
+	},
+	"item": [
+		{
+			"name": "Get all Books",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseUrl}}/v1/Books",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"v1",
+						"Books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new Book - 200",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n\r\n\r\n\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/v1/Books",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"v1",
+						"Books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Book - 404",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/Books/-1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Books",
+						"-1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Book - 200",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 0,\n  \"title\": \"The Two Towers\",\n  \"description\": \"It's tells a tale about a Hobbit and his friends\",\n  \"pageCount\": 222,\n  \"excerpt\": \"excerpt\",\n  \"publishDate\": \"1899-09-19T12:46:43.344Z\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/v1/Books/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"v1",
+						"Books",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Book - 200",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseUrl}}/v1/Books/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"v1",
+						"Books",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://fakerestapi.azurewebsites.net/api"
+		}
+	]
+}
