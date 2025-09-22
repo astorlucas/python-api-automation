@@ -32,6 +32,7 @@ pytest tests/test_get_books.py::test_get_all_books
 pytest -m regression
 ```
 ```
+```
 ### Run Tests and Generate Report
 ```bash
 pytest --html=reports/custom-report.html
