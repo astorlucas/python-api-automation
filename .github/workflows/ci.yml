@@ -1,0 +1,39 @@
+name: FakeRESTApi CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Path for reports
+      run: mkdir -p reports
+      
+    - name: Run tests
+      run: pytest
+      
+    - name: Upload test report as artifact
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: test-report
+        path: reports/
+        retention-days: 30
