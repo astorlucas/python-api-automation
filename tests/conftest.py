@@ -1,6 +1,7 @@
 import pytest
 import os
 import json
+from datetime import datetime
 
 @pytest.fixture(scope="session")
 def environment_config():
@@ -19,3 +20,8 @@ def test_message():
     print("\n---Starting test---")
     yield
     print("\n---Test complete---")
+
+def pytest_configure(config):
+    # Date for test file name
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    config.option.htmlpath = f"reports/report-{timestamp}.html"
