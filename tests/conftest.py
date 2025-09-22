@@ -25,15 +25,3 @@ def pytest_configure(config):
     # Date for test file name
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     config.option.htmlpath = f"reports/report-{timestamp}.html"
-
-@pytest.fixture(scope="session")
-def data_path():
-    """Path to data directory"""
-    return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
-
-@pytest.fixture
-def book_data(data_path):
-    """Load book data from JSON file"""
-    data_file = os.path.join(data_path, 'book_data.json')
-    with open(data_file, 'r') as f:
-        return json.load(f)
